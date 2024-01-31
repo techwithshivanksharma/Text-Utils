@@ -15,6 +15,17 @@ function Textarea(props) {
     setText(newText);
   }
 
+  const handleClearText= () =>{
+    console.log("Clear Button Clicked");
+    setText("");
+  }
+
+  const handleReverseText = ()=>{
+    console.log("Reverse Text Button Clicked");
+    let newText=text.split("").reverse().join("");
+    setText(newText);
+  }
+
   const handleChange = (event) =>{
      console.log("This is handleChange");
      setText(event.target.value);
@@ -30,8 +41,10 @@ function Textarea(props) {
       <div className="mb-3">
         <h1>{props.heading}</h1>
         <textarea className="form-control" onChange={handleChange} placeholder='Enter your text here' value={text} id="floatingTextarea2" rows="15"></textarea>  
-        <button type="button" onClick={handleUpperCaseClick} className="btn btn-primary">UpperCase</button> 
-        <button type="button" onClick={handleLowerCaseClick} className="btn btn-primary mx-3">LowerCase</button> 
+        <button type="button" onClick={handleUpperCaseClick} className="btn btn-primary mx-3 my-3">UpperCase</button> 
+        <button type="button" onClick={handleLowerCaseClick} className="btn btn-primary mx-3 my-3">LowerCase</button> 
+        <button type="button" onClick={handleClearText} className="btn btn-primary mx-3 my-3">Clear Text</button> 
+        <button type="button" onClick={handleReverseText} className="btn btn-primary mx-3 my-3">Reverse Text</button> 
       </div>
     </div>  
     <div className='container'>
